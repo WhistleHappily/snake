@@ -11,6 +11,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import wh.snake.woodenboat.html.HtmlPirate;
+import wh.snake.woodenboat.html.HtmlTarget;
+
 /*******************************************
  * @COMPANY:深圳市鼎火科技有限责任公司
  * @CLASS:Snake
@@ -38,7 +41,10 @@ public class Snake
      */
     private void start(){
         logger.info("Begin");
-        
+        HtmlPirate pirate = new HtmlPirate();
+        HtmlTarget target = new HtmlTarget();
+        target.setLocation("http://www.csto.com/project/list");
+        pirate.attack(target);
     }
 
 }
