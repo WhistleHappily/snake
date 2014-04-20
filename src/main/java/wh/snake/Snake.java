@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import corsair.csto.CstoPirate;
 import wh.snake.woodenboat.html.HtmlPirate;
 import wh.snake.woodenboat.html.HtmlTarget;
 
@@ -28,8 +29,8 @@ public class Snake
     
     public static void main(String[] args)
     {
-        ApplicationContext applicationContext = 
-                new ClassPathXmlApplicationContext("application.xml");
+//        ApplicationContext applicationContext = 
+//                new ClassPathXmlApplicationContext("application.xml");
         
         Snake snake = new Snake();
         
@@ -41,7 +42,7 @@ public class Snake
      */
     private void start(){
         logger.info("Begin");
-        HtmlPirate pirate = new HtmlPirate();
+        HtmlPirate pirate = new CstoPirate();
         HtmlTarget target = new HtmlTarget();
         target.setLocation("http://www.csto.com/project/list");
         pirate.attack(target);
