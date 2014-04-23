@@ -83,14 +83,22 @@ public class HtmlPirate implements Pirate {
 		}
 		// body
 		HttpEntity entity = response.getEntity();
+		BufferedReader reader = null;
 		if( entity != null ){
 			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()));
+				reader = new BufferedReader(new InputStreamReader(entity.getContent()));
 				while( (line = reader.readLine()) != null ){
 					content.append(line);
 				}
 			} catch (Exception e) {
 				logger.error(e);
+			} finally{
+				try {
+					response.close();
+					reader.close();
+				} catch (IOException e) {
+					logger.error(e);
+				}
 			}
 		}
 	
